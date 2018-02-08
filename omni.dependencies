@@ -1,0 +1,8 @@
+[
+	{
+		"remote":"github",
+		"repository":"TeamWin/android_device_samsung_exynos7580-common",
+		"target_path":"device/samsung/exynos7580-common",
+		"revision":"android-8.1"
+	}
+]

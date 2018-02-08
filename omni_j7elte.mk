@@ -1,23 +1,18 @@
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+# Release name
+PRODUCT_RELEASE_NAME := j7elte
 
-DEVICE_PACKAGE_OVERLAYS += device/samsung/j7elte/overlay
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-LOCAL_PATH := device/samsung/j7elte
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := $(LOCAL_PATH)/kernAl
-else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel \
-    $(LOCAL_PATH)/init.recovery.samsungexynos7420.rc:root/init.recovery.samsungexynos7420.rc \
-    $(LOCAL_PATH)/twrp.fstab:recovery/root/etc/recovery.fstab
-    
+PRODUCT_PACKAGES += \
+	charger_res_images \
+	charger
 
-$(call inherit-product, build/target/product/full.mk)
-
-PRODUCT_NAME := omni_j7elte
+## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := j7elte
-PRODUCT_BRAND := Samsung
-PRODUCT_MODEL := j7elte
+PRODUCT_NAME := omni_j7elte
+PRODUCT_BRAND := samsung
+PRODUCT_MANUFACTURER := samsung
