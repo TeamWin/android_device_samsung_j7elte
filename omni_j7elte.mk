@@ -15,7 +15,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/twrp.fstab:recovery/root/etc/recovery.fstab
     
 
-$(call inherit-product, build/target/product/full.mk)
+$(call inherit-product, build/target/product/embedded.mk)
 
 PRODUCT_NAME := omni_j7elte
 PRODUCT_DEVICE := j7elte
